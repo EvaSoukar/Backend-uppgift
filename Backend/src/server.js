@@ -1,8 +1,8 @@
-import app from './app.js'
-import mongoose from 'mongoose'
+import app from './app.js';
+import mongoose from 'mongoose';
 
-const PORT = process.env.PORT || 8000
-const MONGO_URI = process.env.MONGO_URI
+const PORT = process.env.PORT || 8000;
+const MONGO_URI = process.env.MONGO_URI;
 
 const dbConnect = async () => {
   try {
@@ -12,7 +12,7 @@ const dbConnect = async () => {
     console.log(`MongoDB Connection Error: ${err.message}`)
     process.exit(1)
   }
-}
+};
 
 const startserver = async () => {
   try {
@@ -22,6 +22,6 @@ const startserver = async () => {
     console.log('Failed to start server:', err.message)
     process.exit(1)
   }
-}
+};
 
-startserver()
+startserver();
