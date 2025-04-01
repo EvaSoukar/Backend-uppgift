@@ -1,10 +1,16 @@
 import mongoose from "mongoose";
+import ROLES from "../constants/roles.js";
 
 const userSchema = new mongoose.Schema({
-  email: { type: String, required: true, unique: trur },
-  password: { type: String, required: true }
-});
-// cryptera lösenord
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true, lowercase: true },
+  password: { type: String, required: true },
+  role: {
+    type: String,
+    enum: [...Object.values(ROLES)],
+    default: ROLES.RESIDENT
+  }
+}, { timestamps: true });
 
 const User = mongoose.model('User', userSchema);
 
