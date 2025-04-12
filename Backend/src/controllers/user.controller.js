@@ -61,3 +61,11 @@ export const getUserProfile = asyncHandler(async (req, res) => {
   }
   res.status(200).json(user);
 });
+
+export const checkToken = asyncHandler(async (req, res) => {
+  res.status(200).json({
+    _id: req.user._id,
+    name: req.user.name,
+    role: req.user.role
+  })
+})
